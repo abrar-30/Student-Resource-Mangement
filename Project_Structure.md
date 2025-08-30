@@ -110,3 +110,92 @@ Guests & Students can search, filter, and download
 
 
 
+Project Flow – Student Resource Manager
+1. Setup & Project Structure
+
+ Initialize Git repository
+
+ Setup frontend (React/Next.js)
+
+ Setup backend (Node.js + Express)
+
+ Setup database (MongoDB)
+
+ Configure environment variables (DB, storage, JWT secret)
+
+2. User Management
+
+ User registration (student)
+
+ User login (JWT authentication)
+
+ Role-based access (student vs admin)
+
+ Profile page (student resources uploaded)
+
+ Admin dashboard
+
+3. Resources Module
+
+ Create Resources table in DB
+
+ Build upload form (title, type, branch, semester, subject, description, file upload)
+
+ File storage (local folder or cloud e.g., AWS S3)
+
+ API to upload resource (status = pending)
+
+ Admin review (approve/reject resources)
+
+ List & display approved resources
+
+ Search & filter (by semester, branch, type, subject)
+
+ Download resource functionality
+
+4. Reviews Module
+
+ Create Reviews table in DB
+
+ Allow students to add review (rating + comment)
+
+ Display reviews under each resource
+
+ Show average rating for each resource
+
+5. FAQs Module
+
+ Create FAQs table in DB
+
+ Admin can add/edit/delete FAQs
+
+ Display FAQs page for all users
+
+ Search/filter FAQs
+
+6. Extra Features (Optional but Recommended)
+
+ Downloads tracking table (analytics)
+
+ Branches/Subjects tables (cleaner normalization)
+
+ Resource statistics (most downloaded, top-rated)
+
+ Bookmark/Favorite resources (student personal list)
+
+ Email notifications when new resource is uploaded in student’s branch/semester
+
+7. Final Touches
+
+ Responsive frontend (mobile-friendly UI)
+
+ Protect admin routes (middleware for role check)
+
+ Error handling & validation (file type, required fields)
+
+ Seed initial FAQs (common queries)
+
+ Deployment (Vercel/Netlify for frontend, Render/Heroku for backend, Railway for DB)
+
+
+
