@@ -4,9 +4,11 @@ const User = require('./models/users');
 const connect=require("./DB/connect");
 const jwt = require('jsonwebtoken');
 const passport = require('./config/passport');
+const user=require('./routes/user');
 require('dotenv').config();
 
 app.use(express.json()); // Add this line to parse JSON request bodies
+app.use('/api/user',user);
 
 app.get('/',(req,res)=>{
     res.send("Hello World");
