@@ -11,7 +11,7 @@ const opts = {
 passport.use(
   new JwtStrategy(opts, async (jwt_payload, done) => {
     try {
-      // Use _id instead of id
+
       const user = await User.findById(jwt_payload.id);
       if (user) {
         return done(null, user);
