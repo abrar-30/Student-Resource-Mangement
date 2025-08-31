@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema({
         enum: ['student', 'admin','faculty'],
         required: true
     },
+    semester: {
+        type: Number,
+        min: 1,
+        max: 8,
+    },
+    department: {
+        type: String,
+    },
     created_at: {
         type: Date,
         default: Date.now
