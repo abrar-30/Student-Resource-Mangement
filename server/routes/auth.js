@@ -1,7 +1,7 @@
 const express=require('express');
 const { userRegister } = require('../controller/auth');
 const authRouter=express.Router();
-
-authRouter.post('/register',authRegister);
+//hello from jay
+authRouter.post('/register',userRegister);
 
 module.exports=authRouter;
