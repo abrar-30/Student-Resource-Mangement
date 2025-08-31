@@ -30,7 +30,7 @@ const userRegister= async (req, res) => {
         process.env.JWT_SECRET,
         { expiresIn: "7d" }
       );
-
+      
       res.status(201).json({
         message: "User registered successfully",
         token,
