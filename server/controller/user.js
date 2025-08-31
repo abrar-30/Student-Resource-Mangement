@@ -31,7 +31,6 @@ const userRegister= async (req, res) => {
         { expiresIn: "7d" }
       );
 
-      // 6. Send response
       res.status(201).json({
         message: "User registered successfully",
         token,
