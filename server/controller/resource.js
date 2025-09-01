@@ -11,7 +11,7 @@ const getAllResources = async (req, res) => {
 
 const getResourceById = async (req, res) => {
   try {
-    const resource = await Resource.findById(req.params.id);
+    const resource = await Resource.findOne({ id: req.params.id });
     if (!resource) {
       return res.status(404).json({ message: "Resource not found" });
     }
@@ -23,7 +23,15 @@ const getResourceById = async (req, res) => {
 
 const createResource = async (req, res) => {
   try {
-    const newResource = new Resource(req.body);
+    const lastResource = await Resource.findOne().sort({ id: -1 });
+    const newId = lastResource ? lastResource.id + 1 : 1;
+
+    const newResource = new Resource({
+      ...req.body,
+      id: newId,
+      
+    });
+
     const savedResource = await newResource.save();
     res.status(201).json(savedResource);
   } catch (error) {
@@ -33,8 +41,8 @@ const createResource = async (req, res) => {
 
 const updateResource = async (req, res) => {
   try {
-    const updatedResource = await Resource.findByIdAndUpdate(
-      req.params.id,
+    const updatedResource = await Resource.findOneAndUpdate(
+      { id: req.params.id },
       req.body,
       { new: true, runValidators: true }
     );
@@ -49,7 +57,7 @@ const updateResource = async (req, res) => {
 
 const deleteResource = async (req, res) => {
   try {
-    const deletedResource = await Resource.findByIdAndDelete(req.params.id);
+    const deletedResource = await Resource.findOneAndDelete({ id: req.params.id });
     if (!deletedResource) {
       return res.status(404).json({ message: "Resource not found" });
     }

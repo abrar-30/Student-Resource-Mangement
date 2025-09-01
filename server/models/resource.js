@@ -40,11 +40,6 @@ const resourceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    uploaded_by: {
-        type: mongoose.Schema.Types.Number,
-        ref: 'User',
-        required: true
-    },
     status: {
         type: String,
         enum: ['pending', 'approved', 'rejected'],
