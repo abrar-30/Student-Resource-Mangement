@@ -5,7 +5,10 @@ const getAllResources = async (req, res) => {
     const resources = await Resource.find();
     res.status(200).json(resources);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching resources", error: error.message });
+    res.status(500).json({
+      message: "Error fetching resources",
+      error: error.message,
+    });
   }
 };
 
@@ -17,7 +20,10 @@ const getResourceById = async (req, res) => {
     }
     res.status(200).json(resource);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching resource", error: error.message });
+    res.status(500).json({
+      message: "Error fetching resource",
+      error: error.message,
+    });
   }
 };
 
@@ -29,13 +35,16 @@ const createResource = async (req, res) => {
     const newResource = new Resource({
       ...req.body,
       id: newId,
-      
+      user_id: req.user.id, // ✅ from JWT
     });
 
     const savedResource = await newResource.save();
     res.status(201).json(savedResource);
   } catch (error) {
-    res.status(400).json({ message: "Error creating resource", error: error.message });
+    res.status(400).json({
+      message: "Error creating resource",
+      error: error.message,
+    });
   }
 };
 
@@ -51,7 +60,10 @@ const updateResource = async (req, res) => {
     }
     res.status(200).json(updatedResource);
   } catch (error) {
-    res.status(400).json({ message: "Error updating resource", error: error.message });
+    res.status(400).json({
+      message: "Error updating resource",
+      error: error.message,
+    });
   }
 };
 
@@ -63,7 +75,10 @@ const deleteResource = async (req, res) => {
     }
     res.status(200).json({ message: "Resource deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Error deleting resource", error: error.message });
+    res.status(500).json({
+      message: "Error deleting resource",
+      error: error.message,
+    });
   }
 };
 
