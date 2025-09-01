@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    resource_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Resource',
+    },
     role: {
         type: String,
         enum: ['student', 'admin','faculty'],
@@ -26,7 +30,7 @@ const userSchema = new mongoose.Schema({
     },
     created_at: {
         type: Date,
-        default: Date.now()
+        default: Date.now
     }
 });
 

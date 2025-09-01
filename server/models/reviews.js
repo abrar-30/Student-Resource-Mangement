@@ -7,12 +7,12 @@ const reviewSchema = new mongoose.Schema({
         unique: true
     },
     resource_id: {
-        type: mongoose.Schema.Types.Number,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Resource',
         required: true
     },
     user_id: {
-        type: mongoose.Schema.Types.Number,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
@@ -28,7 +28,7 @@ const reviewSchema = new mongoose.Schema({
     },
     created_at: {
         type: Date,
-        default: Date.now()
+        default: Date.now
     }
 });
 
