@@ -1,24 +1,14 @@
-import express from "express";
-const router = express.Router();
+const express = require("express");
+const resourceRouter = express.Router();
+const {getAllResources, getResourceById,createResource,updateResource,deleteResource}=require("../controllers/resourceController");
+resourceRouter.get("/resources", getAllResources);
 
-router.get("/resources", (req, res) => {
-  res.send("Get all resources");
-});
+resourceRouter.get("/resource/:id", getResourceById);
 
-router.get("/resource/:id", (req, res) => {
-  res.send(`Get resource with ID ${req.params.id}`);
-});
+resourceRouter.post("/resources", createResource);
 
-router.post("/resources", (req, res) => {
-  res.send("Create a new resource");
-});
+resourceRouter.put("/resource/:id", updateResource);
 
-router.put("/resource/:id", (req, res) => {
-  res.send(`Update resource with ID ${req.params.id}`);
-});
+resourceRouter.delete("/resource/:id", deleteResource);
 
-router.delete("/resource/:id", (req, res) => {
-  res.send(`Delete resource with ID ${req.params.id}`);
-});
-
-export default router;
+module.exports = resourceRouter;
