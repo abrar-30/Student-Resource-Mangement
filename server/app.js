@@ -4,14 +4,14 @@ const connect = require('./DB/connect');
 require('dotenv').config();
 const passport = require('./config/passport'); // already configured passport
 const authRoutes = require('./routes/auth');
-
+const resourceRoutes = require('./routes/resources');
 // Middlewares
 app.use(express.json());
 app.use(passport.initialize());
 
 // Routes
 app.use('/api/auth', authRoutes);
-
+app.use('/api/learning', resourceRoutes);
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
