@@ -6,6 +6,11 @@ const resourceSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -33,11 +38,6 @@ const resourceSchema = new mongoose.Schema({
     },
     file_url: {
         type: String,
-        required: true
-    },
-    uploaded_by: {
-        type: mongoose.Schema.Types.Number,
-        ref: 'User',
         required: true
     },
     status: {
