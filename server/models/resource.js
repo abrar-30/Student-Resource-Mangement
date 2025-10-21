@@ -17,7 +17,7 @@ const resourceSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['ppt', 'notes', 'book', 'lab manual', 'mid paper', 'gtu paper'],
+        enum: ['ppt', 'notes', 'book', 'lab manual', 'mid paper', 'gtu paper', 'pdf', 'pptx', 'docx', 'doc', 'presentation', 'document'],
         required: true
     },
     branch: {
@@ -37,6 +37,22 @@ const resourceSchema = new mongoose.Schema({
         required: true
     },
     file_url: {
+        type: String,
+        required: true
+    },
+    file_public_id: {
+        type: String,
+        required: true
+    },
+    file_name: {
+        type: String,
+        required: true
+    },
+    file_size: {
+        type: Number,
+        required: true
+    },
+    file_type: {
         type: String,
         required: true
     },
